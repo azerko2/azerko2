@@ -1,0 +1,21 @@
+import random, string, time
+from colorama import Fore, Style
+
+blue = Fore.BLUE; magenta = Fore.MAGENTA; reset = Style.RESET_ALL
+
+prefix = [1,3]
+btc_prefix = str(random.choice(prefix))
+count = random.randint(100, 200)
+lenght = random.randint(25, 35)
+btc_lenght = round(random.uniform(0.99999, 0.00001), 5)
+
+for x in range(count):
+    addresses = ''.join(random.sample(string.ascii_lowercase + string.ascii_uppercase + string.digits, lenght ))
+    print(btc_prefix + addresses + blue + " | " + reset + "0.00000" + blue + " BTC" + reset )
+    btc_prefix = str(random.choice(prefix))
+    time.sleep(0.01)
+else:
+    addresses_found = ''.join(random.sample(string.ascii_lowercase + string.ascii_uppercase + string.digits, lenght ))
+    print("\nBTC found after " + str(count) + " attenpts!")
+    print("wallet: " + btc_prefix + addresses_found + magenta + " | " + reset + str(btc_lenght) + magenta + btc_prefix)
+    print('BTC added to your wallet! felicitari, idiottilor ')
